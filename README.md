@@ -1,1 +1,1 @@
-<img src="assets/header.svg" alt="von Kármán vortex street" width="100%">
+<img src="assets/header.svg" alt="A von Kármán vortex street, with a small figure swimming upstream against it" width="100%">
