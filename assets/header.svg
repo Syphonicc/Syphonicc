@@ -1,5 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 230" width="1000" height="230"
      role="img" aria-label="A vortex street with a small figure swimming upstream">
+  <defs>
+    <linearGradient id="redG" gradientUnits="userSpaceOnUse" x1="0" y1="-16" x2="0" y2="14">
+      <stop offset="0"    stop-color="#ff6f6f"/>
+      <stop offset="0.42" stop-color="#e03131"/>
+      <stop offset="1"    stop-color="#8f1b1b"/>
+    </linearGradient>
+    <linearGradient id="redFarG" gradientUnits="userSpaceOnUse" x1="0" y1="-16" x2="0" y2="22">
+      <stop offset="0"    stop-color="#b34040"/>
+      <stop offset="0.5"  stop-color="#8d1616"/>
+      <stop offset="1"    stop-color="#560e0e"/>
+    </linearGradient>
+    <linearGradient id="blueG" gradientUnits="userSpaceOnUse" x1="0" y1="-10" x2="0" y2="14">
+      <stop offset="0"    stop-color="#4e74d6"/>
+      <stop offset="0.5"  stop-color="#2a4a9e"/>
+      <stop offset="1"    stop-color="#14265c"/>
+    </linearGradient>
+    <linearGradient id="blueFarG" gradientUnits="userSpaceOnUse" x1="0" y1="-8" x2="0" y2="18">
+      <stop offset="0"    stop-color="#31509b"/>
+      <stop offset="0.5"  stop-color="#1b3270"/>
+      <stop offset="1"    stop-color="#0c1a44"/>
+    </linearGradient>
+    <radialGradient id="headG" gradientUnits="userSpaceOnUse" cx="-27" cy="-6" r="13">
+      <stop offset="0"   stop-color="#ff7b7b"/>
+      <stop offset="0.5" stop-color="#e03131"/>
+      <stop offset="1"   stop-color="#8f1b1b"/>
+    </radialGradient>
+  </defs>
   <rect x="0" y="0" width="1000" height="230" rx="12" fill="#0d1117"/>
 
   <path d="M-40 48 L1040 48" stroke="#64748b" stroke-width="1.4" fill="none" opacity="0.30" stroke-dasharray="26 34" stroke-linecap="round"><animate attributeName="stroke-dashoffset" from="60" to="0" dur="1.5s" repeatCount="indefinite"/></path>
@@ -319,9 +346,18 @@
       <g>
         <animateTransform attributeName="transform" type="rotate" from="200" to="-160"
           dur="1.05s" repeatCount="indefinite"/>
-        <path d="M0 0 Q -9 5 -15 11 T -23 19" fill="none" stroke="#8d1616" stroke-width="6.5"
-              stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
-        <circle cx="-23" cy="19" r="3.4" fill="#e8b08a" opacity="0.85"/>
+        <path d="M0 0 Q -9 5 -15 11 T -23 19" fill="none" stroke="#5e0f0f" stroke-width="8.0"
+              stroke-linecap="round" stroke-linejoin="round" opacity="0.765"/>
+        <path d="M0 0 Q -9 5 -15 11 T -23 19" fill="none" stroke="url(#redFarG)" stroke-width="6.6"
+              stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+        <path d="M-1 -1 Q -9 4 -14 10" fill="none" stroke="#ff8a8a" stroke-width="1.5"
+              stroke-linecap="round" opacity="0.405"/>
+        <g opacity="0.9">
+          <ellipse cx="-23.5" cy="19.5" rx="4.1" ry="3.4"
+                   fill="url(#redFarG)" stroke="#5e0f0f" stroke-width="0.9"/>
+          <path d="M-26 18 L-21 21 M-24 16.5 L-23 22.5" stroke="#5e0f0f"
+                stroke-width="0.6" opacity="0.8"/>
+        </g>
       </g>
 
       <!-- far leg, behind the body -->
@@ -330,19 +366,34 @@
           values="22;-22;22" dur="0.52s" repeatCount="indefinite"
           calcMode="spline" keyTimes="0;0.5;1"
           keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
-        <path d="M0 0 Q 11.7 2 18.9 5 T 29.7 9" fill="none" stroke="#1b3270"
+        <path d="M0 0 Q 11.7 2 18.9 5 T 29.7 9" fill="none" stroke="url(#blueFarG)"
               stroke-width="6.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
         <path d="M0 0 Q 11.7 2 18.9 5 T 29.7 9" fill="none" stroke="#0c1a44"
               stroke-width="6.4" stroke-linecap="round" stroke-dasharray="1.4 6" opacity="0.55"/>
-        <ellipse cx="30.6" cy="10" rx="5" ry="3" fill="#7d1414" opacity="0.95"/>
+        <ellipse cx="30.6" cy="10" rx="5.4" ry="3.2" fill="url(#redFarG)" stroke="#5e0f0f" stroke-width="0.8" opacity="0.95"/>
       </g>
 
-      <!-- torso: red over blue -->
-      <path d="M-16 -6 Q 2 -9 18 -4 Q 20 2 18 7 Q 2 10 -16 7 Z" fill="#2a4a9e"/>
-      <path d="M-18 -7 Q -4 -10 6 -7 Q 8 0 6 8 Q -4 10 -18 7 Z" fill="#e03131"/>
+      <!-- torso: shaded red over shaded blue -->
+      <path d="M-16 -6 Q 2 -9 18 -4 Q 20 2 18 7 Q 2 10 -16 7 Z" fill="url(#blueG)"
+            stroke="#101f4a" stroke-width="0.8"/>
+      <path d="M-18 -7 Q -4 -10 6 -7 Q 8 0 6 8 Q -4 10 -18 7 Z" fill="url(#redG)"
+            stroke="#6d1212" stroke-width="0.9"/>
+      <!-- specular highlight along the back -->
+      <path d="M-16 -6.6 Q -4 -9.2 5 -6.6" fill="none" stroke="#ff9b9b" stroke-width="1.6"
+            stroke-linecap="round" opacity="0.5"/>
+      <path d="M8 -5.2 Q 14 -5.2 17.4 -3.6" fill="none" stroke="#7d9cec" stroke-width="1.3"
+            stroke-linecap="round" opacity="0.45"/>
+      <!-- webbing -->
       <path d="M-17 -3 L5 -2 M-17 2 L5 3 M-12 -8 L-11 9 M-5 -9 L-4 9 M2 -8 L3 9"
-            stroke="#8d1616" stroke-width="0.8" fill="none" opacity="0.7"/>
-      <path d="M8 -6 L18 -3 M8 0 L19 1 M8 5 L18 6" stroke="#152a63" stroke-width="0.8" opacity="0.6"/>
+            stroke="#6d1212" stroke-width="0.7" fill="none" opacity="0.75"/>
+      <path d="M8 -6 L18 -3 M8 0 L19 1 M8 5 L18 6" stroke="#101f4a" stroke-width="0.7" opacity="0.6"/>
+      <!-- chest emblem -->
+      <g opacity="0.9">
+        <ellipse cx="-7" cy="0.5" rx="1.5" ry="2.5" fill="#3d0808"/>
+        <path d="M-8 -1 L-11 -3 M-8 0 L-11.5 0 M-8 1.5 L-11 3.5 M-8 2.5 L-9.5 5
+                 M-6 -1 L-3 -3 M-6 0 L-2.5 0 M-6 1.5 L-3 3.5 M-6 2.5 L-4.5 5"
+              stroke="#3d0808" stroke-width="0.55" fill="none" stroke-linecap="round"/>
+      </g>
 
       <!-- near leg, in front -->
       <g transform="translate(15 2)">
@@ -350,30 +401,44 @@
           values="-22;22;-22" dur="0.52s" repeatCount="indefinite"
           calcMode="spline" keyTimes="0;0.5;1"
           keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
-        <path d="M0 0 Q 13.0 2 21.0 5 T 33.0 9" fill="none" stroke="#2a4a9e"
+        <path d="M0 0 Q 13.0 2 21.0 5 T 33.0 9" fill="none" stroke="url(#blueG)"
               stroke-width="7.4" stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
         <path d="M0 0 Q 13.0 2 21.0 5 T 33.0 9" fill="none" stroke="#152a63"
               stroke-width="7.4" stroke-linecap="round" stroke-dasharray="1.4 6" opacity="0.55"/>
-        <ellipse cx="34.0" cy="10" rx="5" ry="3" fill="#8d1616" opacity="1.0"/>
+        <ellipse cx="34.0" cy="10" rx="5.4" ry="3.2" fill="url(#redG)" stroke="#5e0f0f" stroke-width="0.8" opacity="1.0"/>
       </g>
 
       <!-- head, turned to breathe -->
       <g transform="translate(0 0)">
         <animateTransform attributeName="transform" type="rotate" values="-6 -25 -2; 4 -25 -2; -6 -25 -2"
           dur="1.05s" repeatCount="indefinite"/>
-        <circle cx="-25" cy="-2" r="8.5" fill="#e03131"/>
+        <circle cx="-25" cy="-2" r="8.5" fill="url(#headG)"/>
         <path d="M-25 -2 L-33.0 -4.9" stroke="#8d1616" stroke-width="0.8" opacity="0.75"/><path d="M-25 -2 L-27.9 -10.0" stroke="#8d1616" stroke-width="0.8" opacity="0.75"/><path d="M-25 -2 L-20.8 -9.4" stroke="#8d1616" stroke-width="0.8" opacity="0.75"/><path d="M-25 -2 L-17.0 -4.9" stroke="#8d1616" stroke-width="0.8" opacity="0.75"/><path d="M-25 -2 L-17.0 0.9" stroke="#8d1616" stroke-width="0.8" opacity="0.75"/><path d="M-25 -2 L-22.1 6.0" stroke="#8d1616" stroke-width="0.8" opacity="0.75"/><path d="M-25 -2 L-29.2 5.4" stroke="#8d1616" stroke-width="0.8" opacity="0.75"/><path d="M-25 -2 L-33.0 0.9" stroke="#8d1616" stroke-width="0.8" opacity="0.75"/>
-        <circle cx="-25" cy="-2" r="8.5" fill="none" stroke="#8d1616" stroke-width="1"/>
-        <path d="M-29 -5 Q -33 -3 -30 1 Q -26 1 -26 -3 Z" fill="#ffffff" stroke="#111" stroke-width="0.9"/>
+        <circle cx="-25" cy="-2" r="8.5" fill="none" stroke="#6d1212" stroke-width="1.1"/>
+        <path d="M-30 -7.5 Q -24 -10 -19.5 -6.5" fill="none" stroke="#ff9b9b" stroke-width="1.4"
+              stroke-linecap="round" opacity="0.55"/>
+        <path d="M-29 -5 Q -33.4 -3 -30.2 1.2 Q -25.8 1.2 -25.8 -3.2 Z" fill="#ffffff"
+              stroke="#0d0d0d" stroke-width="1"/>
+        <path d="M-30.4 -4.4 Q -32.2 -3.4 -30.8 -1.6" fill="none" stroke="#9fd4ff"
+              stroke-width="0.9" stroke-linecap="round" opacity="0.85"/>
       </g>
 
       <!-- near arm, in front -->
       <g>
         <animateTransform attributeName="transform" type="rotate" from="20" to="-340"
           dur="1.05s" repeatCount="indefinite"/>
-        <path d="M0 0 Q -9 5 -15 11 T -23 19" fill="none" stroke="#e03131" stroke-width="7.5"
+        <path d="M0 0 Q -9 5 -15 11 T -23 19" fill="none" stroke="#7a1414" stroke-width="9.0"
+              stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+        <path d="M0 0 Q -9 5 -15 11 T -23 19" fill="none" stroke="url(#redG)" stroke-width="7.6"
               stroke-linecap="round" stroke-linejoin="round" opacity="1.0"/>
-        <circle cx="-23" cy="19" r="3.9" fill="#e8b08a" opacity="1.0"/>
+        <path d="M-1 -1 Q -9 4 -14 10" fill="none" stroke="#ff8a8a" stroke-width="1.5"
+              stroke-linecap="round" opacity="0.45"/>
+        <g opacity="1.0">
+          <ellipse cx="-23.5" cy="19.5" rx="4.7" ry="4.0"
+                   fill="url(#redG)" stroke="#7a1414" stroke-width="0.9"/>
+          <path d="M-26 18 L-21 21 M-24 16.5 L-23 22.5" stroke="#7a1414"
+                stroke-width="0.6" opacity="0.8"/>
+        </g>
       </g>
 
       <!-- bow wave at the head -->
